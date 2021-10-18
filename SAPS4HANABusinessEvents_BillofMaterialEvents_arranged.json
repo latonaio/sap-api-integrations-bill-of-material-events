@@ -1,0 +1,310 @@
+{"openapi":"3.0.0","info":{
+  "title":"Bill of Material",
+  "version":"1.0",
+  "description":"A bill of material is a list of components and their quantities that make up a top-level material. The following events are available for the bill of material: \n - Bill of material changed \n - Bill of material item changed \n - Bill of material created \n - Bill of material item created  \n - Bill of material deleted \n - Bill of material item deleted"},
+  "externalDocs":{
+    "description":"Business Documentation",
+    "url":"https://help.sap.com/viewer/9f047b05da4545ca8f9ebfc22acefd06/2021.000/en-US/e7f078a006e44e929c2f819117e23194.html"},
+    "components":{
+      "schemas":{
+        "sap.s4.beh.billofmaterial.v1.BillOfMaterial.ItemCreated.v1":{"
+          type":"object",
+          "properties":{
+            "BillOfMaterial":{"type":"string"},
+            "BillOfMaterialCategory":{"type":"string"},
+            "BillOfMaterialComponent":{"type":"string"},
+            "BillOfMaterialItemCategory":{"type":"string"},
+            "BillOfMaterialItemNodeNumber":{"type":"string"},
+            "BillOfMaterialItemNumber":{"type":"string"},
+            "BillOfMaterialVariant":{"type":"string"},
+            "BillOfMaterialVersion":{"type":"string"},
+            "EngineeringChangeDocument":{"type":"string"},
+            "InheritedNodeNumberForBOMItem":{"type":"string"},
+            "Material":{"type":"string"},
+            "Plant":{"type":"string"}
+            }
+          },
+        "sap.s4.beh.billofmaterial.v1.BillOfMaterial.ItemChanged.v1":{
+          "type":"object",
+          "properties":{
+            "BillOfMaterial":{"type":"string"},
+            "BillOfMaterialCategory":{"type":"string"},
+            "BillOfMaterialComponent":{"type":"string"},
+            "BillOfMaterialItemCategory":{"type":"string"},
+            "BillOfMaterialItemNodeNumber":{"type":"string"},
+            "BillOfMaterialItemNumber":{"type":"string"},
+            "BillOfMaterialVariant":{"type":"string"},
+            "BillOfMaterialVersion":{"type":"string"},
+            "EngineeringChangeDocument":{"type":"string"},
+            "InheritedNodeNumberForBOMItem":{"type":"string"},
+            "Material":{"type":"string"},
+            "Plant":{"type":"string"}
+            }
+          },
+        "sap.s4.beh.billofmaterial.v1.BillOfMaterial.ItemDeleted.v1":{
+          "type":"object",
+          "properties":{
+            "BillOfMaterial":{"type":"string"},
+            "BillOfMaterialCategory":{"type":"string"},
+            "BillOfMaterialComponent":{"type":"string"},
+            "BillOfMaterialItemCategory":{"type":"string"},
+            "BillOfMaterialItemNodeNumber":{"type":"string"},
+            "BillOfMaterialItemNumber":{"type":"string"},
+            "BillOfMaterialVariant":{"type":"string"},
+            "BillOfMaterialVersion":{"type":"string"},
+            "EngineeringChangeDocument":{"type":"string"},
+            "InheritedNodeNumberForBOMItem":{"type":"string"},
+            "Material":{"type":"string"},
+            "Plant":{"type":"string"}
+            }
+          },
+        "sap.s4.beh.billofmaterial.v1.BillOfMaterial.Changed.v1":{
+          "type":"object",
+          "properties":{
+            "BillOfMaterial":{"type":"string"},
+            "BillOfMaterialCategory":{"type":"string"},
+            "BillOfMaterialHeaderUUID":{"type":"string","format":"uuid"},
+            "BillOfMaterialVariant":{"type":"string"},
+            "BillOfMaterialVersion":{"type":"string"},
+            "EngineeringChangeDocument":{"type":"string"},
+            "Material":{"type":"string"},
+            "Plant":{"type":"string"}
+            }
+          },
+        "sap.s4.beh.billofmaterial.v1.BillOfMaterial.Created.v1":{
+          "type":"object",
+          "properties":{
+            "BillOfMaterial":{"type":"string"},
+            "BillOfMaterialCategory":{"type":"string"},
+            "BillOfMaterialHeaderUUID":{"type":"string","format":"uuid"},
+            "BillOfMaterialVariant":{"type":"string"},
+            "BillOfMaterialVersion":{"type":"string"},
+            "EngineeringChangeDocument":{"type":"string"},
+            "Material":{"type":"string"},
+            "Plant":{"type":"string"}
+            }
+          },
+        "sap.s4.beh.billofmaterial.v1.BillOfMaterial.Deleted.v1":{
+          "type":"object",
+          "properties":{
+            "BillOfMaterial":{"type":"string"},
+            "BillOfMaterialCategory":{"type":"string"},
+            "BillOfMaterialHeaderUUID":{"type":"string","format":"uuid"},
+            "BillOfMaterialVariant":{"type":"string"},
+            "BillOfMaterialVersion":{"type":"string"},
+            "EngineeringChangeDocument":{"type":"string"},
+            "Material":{"type":"string"},
+            "Plant":{"type":"string"}
+            }
+          },
+        "CloudContext":{
+          "title":"Schema for the CloudEvents context fields.",
+          "description":"This is a schema specification for the context fields as per CloudEvent standards.",
+          "type":"object",
+          "properties":{
+            "specversion":{
+              "description":"The version of the CloudEvents specification which the event uses. This enables the interpretation of the context.",
+              "type":"string"},
+              "type":{
+                "description":"Type of occurrence which has happened. Often this property is used for routing, observability, policy enforcement, etc.",
+                "type":"string",
+                "minLength":1},
+                "source":{
+                  "description":"This describes the event producer.",
+                  "type":"string",
+                  "format":"uri-reference"},
+                "subject":{
+                  "description":"The subject of the event in the context of the event producer (identified by source).",
+                  "type":"string",
+                  "minLength":1},
+                "id":{
+                  "description":"ID of the event.",
+                  "type":"string",
+                  "minLength":1},
+                "time":{
+                  "description":"Timestamp of when the occurrence happened. Must adhere to RFC 3339.",
+                  "type":"string",
+                  "format":"date-time"},
+                "datacontenttype":{
+                  "description":"Describe the data encoding format",
+                  "type":"string"}
+                },
+              "required":[
+                "id",
+                "specversion",
+                "source",
+                "type"]
+                }
+              }
+            },
+    "paths":{
+      "/sap.s4.beh.billofmaterial.v1.BillOfMaterial.ItemCreated.v1":{
+        "post":{
+          "tags":["Item Created"],
+          "x-payload":"",
+          "description":"This event is raised when a bill of material item is created.",
+          "summary":"Bill of Material Item Created",
+          "requestBody":{
+            "content":{
+              "application/json":{
+                "schema":{
+                  "allOf":[
+                    {"type":"object","$ref":"#/components/schemas/CloudContext"},
+                    {"type":"object","properties":{
+                      "data":{
+                        "description":"Data Fields",
+                        "$ref":"#/components/schemas/sap.s4.beh.billofmaterial.v1.BillOfMaterial.ItemCreated.v1"}
+                        }
+                    }
+                    ]
+                    }
+                  }
+                }
+              },
+          "responses":{
+            "default":{"description":"Successful"}
+            }
+          }
+          },
+        "/sap.s4.beh.billofmaterial.v1.BillOfMaterial.ItemChanged.v1":{
+          "post":{
+            "tags":["Item Changed"],
+            "x-payload":"",
+            "description":"This event is raised when a bill of material item is changed.",
+            "summary":"Bill of Material Item Changed",
+            "requestBody":{
+              "content":{
+                "application/json":{
+                  "schema":{
+                    "allOf":[
+                      {"type":"object","$ref":"#/components/schemas/CloudContext"},
+                      {"type":"object","properties":{
+                        "data":{
+                          "description":"Data Fields",
+                          "$ref":"#/components/schemas/sap.s4.beh.billofmaterial.v1.BillOfMaterial.ItemChanged.v1"}
+                          }
+                      }
+                      ]
+                      }
+                      }
+                      }
+                    },
+            "responses":{
+              "default":{"description":"Successful"}
+              }
+              }
+            },
+    "/sap.s4.beh.billofmaterial.v1.BillOfMaterial.ItemDeleted.v1":{
+      "post":{
+        "tags":["Item Deleted"],
+        "x-payload":"",
+        "description":"This event is raised when a bill of material item is deleted.",
+        "summary":"Bill of Material Item Deleted",
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "allOf":[
+                  {"type":"object","$ref":"#/components/schemas/CloudContext"},
+                  {"type":"object","properties":{
+                    "data":{
+                      "description":"Data Fields",
+                      "$ref":"#/components/schemas/sap.s4.beh.billofmaterial.v1.BillOfMaterial.ItemDeleted.v1"}
+                      }
+                  }
+                  ]
+                  }
+                  }
+                  }
+                  },
+        "responses":{
+          "default":{"description":"Successful"}
+          }
+          }
+          },
+    "/sap.s4.beh.billofmaterial.v1.BillOfMaterial.Changed.v1":{
+      "post":{
+        "tags":["Changed"],
+        "x-payload":"",
+        "description":"This event is raised when a Bill of Material is changed",
+        "summary":"Bill of Material Changed",
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "allOf":[
+                  {"type":"object","$ref":"#/components/schemas/CloudContext"},
+                  {"type":"object","properties":{
+                    "data":{
+                      "description":"Data Fields",
+                      "$ref":"#/components/schemas/sap.s4.beh.billofmaterial.v1.BillOfMaterial.Changed.v1"}
+                      }
+                  }
+                  ]
+                  }
+                  }
+                  }
+                  },
+        "responses":{
+          "default":{"description":"Successful"}
+          }
+          }
+          },
+    "/sap.s4.beh.billofmaterial.v1.BillOfMaterial.Created.v1":{
+      "post":{
+        "tags":["Created"],
+        "x-payload":"",
+        "description":"This event is raised when a Bill of Material is created",
+        "summary":"Bill of Material Created",
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "allOf":[
+                  {"type":"object","$ref":"#/components/schemas/CloudContext"},
+                  {"type":"object","properties":{
+                    "data":{
+                      "description":"Data Fields",
+                      "$ref":"#/components/schemas/sap.s4.beh.billofmaterial.v1.BillOfMaterial.Created.v1"}
+                      }
+                  }
+                  ]
+                  }
+                  }
+                  }
+                  },
+        "responses":{
+          "default":{"description":"Successful"}
+          }
+          }
+          },
+    "/sap.s4.beh.billofmaterial.v1.BillOfMaterial.Deleted.v1":{
+      "post":{
+        "tags":["Deleted"],
+        "x-payload":"",
+        "description":"This event is raised when a Bill of Material is deleted",
+        "summary":"Bill of Material Deleted",
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "allOf":[
+                  {"type":"object","$ref":"#/components/schemas/CloudContext"},
+                  {"type":"object","properties":{
+                    "data":{
+                      "description":"Data Fields",
+                      "$ref":"#/components/schemas/sap.s4.beh.billofmaterial.v1.BillOfMaterial.Deleted.v1"}
+                      }
+                  }
+                  ]
+                  }
+                  }
+                  }
+                  },
+          "responses":{
+            "default":{"description":"Successful"}
+            }
+          }
+        }
+      }
+}
